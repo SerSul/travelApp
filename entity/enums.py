@@ -1,0 +1,21 @@
+from enum import Enum
+
+class PassportType(Enum):
+    INTERNAL = "INTERNAL"
+    INTERNATIONAL = "INTERNATIONAL"
+    OTHER = "OTHER"
+
+class TripStatus(Enum):
+    PLANNED = "PLANNED"
+    IN_PROGRESS = "IN_PROGRESS"
+    COMPLETED = "COMPLETED"
+    CANCELLED = "CANCELLED"
+    APPROVED = "APPROVED"
+    REJECTED = "REJECTED"
+
+class TripType(Enum):
+    TRAINING = "TRAINING"
+    MEETING = "MEETING"
+    CONFERENCE = "CONFERENCE"
+    NEGOTIATION = "NEGOTIATION"
+    OTHER = "OTHER"
