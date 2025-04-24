@@ -47,6 +47,7 @@ class Employee(db.Model):
     position = db.Column(db.String(100), nullable=True)
     active = db.Column(db.Boolean, nullable=False, default=True)
     personal_data_id = db.Column(db.Integer, db.ForeignKey('personal_data.id'), nullable=True)
+    personal_data = db.relationship('PersonalData', backref='employees', uselist=False)
 
     passport = db.relationship('PassportData', backref='employee_owner', uselist=False, cascade="all, delete-orphan")
     contact_info = db.relationship('ContactInfo', backref='employee_owner', uselist=False, cascade="all, delete-orphan")
