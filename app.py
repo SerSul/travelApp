@@ -1,14 +1,19 @@
-from flask import Flask, jsonify, request
-from entity.models import db, Employee, BusinessTrip
-from datetime import date
+from flask import Flask
+from flask_restx import Api
 from flask_migrate import Migrate
-from routes import api as blueprint
-
+from entity.models import db
+from routes import ns as main_namespace
 
 app = Flask(__name__)
 app.config.from_object('config.Config')
-app.register_blueprint(blueprint.api, url_prefix='/api')
 
+# Создаем объект API
+api = Api(app, version='1.0', title='Employee API', description='Управление сотрудниками и командировками')
+
+# Подключаем namespace
+api.add_namespace(main_namespace, path='/api')
+
+# Инициализируем миграции и БД
 migrate = Migrate(app, db)
 db.init_app(app)
 
