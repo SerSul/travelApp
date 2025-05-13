@@ -8,8 +8,19 @@ from routes import ns as main_namespace
 app = Flask(__name__)
 app.config.from_object('config.Config')
 
+authorizations = {
+    'apikey': {
+        'type': 'apiKey',
+        'in': 'header',
+        'name': 'X-API-KEY'
+    }
+}
+
+
 # Создаем объект API
-api = Api(app, version='1.0', title='Employee API', description='Управление сотрудниками и командировками')
+api = Api(app, version='1.0', title='Employee API', description='Управление сотрудниками и командировками', authorizations=authorizations,
+    security='apikey')
+
 
 # Подключаем namespace
 api.add_namespace(main_namespace, path='/api')

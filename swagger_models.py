@@ -40,3 +40,48 @@ employee_response_model = ns.model('EmployeeResponse', {
     'email': fields.String(description='Email'),
     'passport': fields.String(description='Номер паспорта')
 })
+
+
+trip_response_model = ns.model('TripResponse', {
+    'id': fields.Integer(description='ID командировки'),
+    'destination': fields.String(description='Место назначения командировки'),
+    'purpose': fields.String(description='Цель командировки'),
+    'start_date': fields.String(description='Дата начала командировки (формат: YYYY-MM-DD)'),
+    'end_date': fields.String(description='Дата окончания командировки (формат: YYYY-MM-DD)'),
+    'status': fields.String(description='Статус командировки'),
+    'employee_id': fields.Integer(description='ID сотрудника')
+})
+
+
+trip_create_model = ns.model('TripCreate', {
+    'destination': fields.String(required=True, description='Место назначения командировки'),
+    'purpose': fields.String(required=True, description='Цель командировки'),
+    'start_date': fields.String(required=True, description='Дата начала командировки (формат: YYYY-MM-DD)'),
+    'end_date': fields.String(required=True, description='Дата окончания командировки (формат: YYYY-MM-DD)'),
+    'budget': fields.Float(description='Бюджет командировки'),
+    'trip_type': fields.String(description='Тип командировки (например, BUSINESS, PERSONAL)'),
+    'status': fields.String(description='Статус командировки (например, PLANNED, IN_PROGRESS, COMPLETED)'),
+    'employee_id': fields.Integer(required=True, description='ID сотрудника')
+})
+
+trip_type_enum = ns.model('TripTypeEnum', {
+    'BUSINESS': fields.String(description='Бизнес командировка'),
+    'PERSONAL': fields.String(description='Личная командировка')
+})
+
+trip_status_enum = ns.model('TripStatusEnum', {
+    'PLANNED': fields.String(description='Запланирована'),
+    'IN_PROGRESS': fields.String(description='В процессе'),
+    'COMPLETED': fields.String(description='Завершена'),
+})
+
+
+trip_update_model = ns.model('TripUpdate', {
+    'destination': fields.String(description='Место назначения командировки'),
+    'purpose': fields.String(description='Цель командировки'),
+    'start_date': fields.String(description='Дата начала командировки (формат: YYYY-MM-DD)'),
+    'end_date': fields.String(description='Дата окончания командировки (формат: YYYY-MM-DD)'),
+    'budget': fields.Float(description='Бюджет командировки'),
+    'trip_type': fields.String(description='Тип командировки (например, BUSINESS, PERSONAL)'),
+    'status': fields.String(description='Статус командировки (например, PLANNED, IN_PROGRESS, COMPLETED)'),
+})
