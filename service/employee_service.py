@@ -1,6 +1,6 @@
 from datetime import datetime
 from typing import Dict, Optional
-from entity.models import db, Employee, PassportData, ContactInfo, PersonalData
+from entity import db, Employee, PassportData, ContactInfo, PersonalData
 from entity.enums import PassportType
 from sqlalchemy.exc import SQLAlchemyError
 

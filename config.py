@@ -1,4 +1,3 @@
-import os
 from flask_restx import Namespace
 from functools import wraps
 from flask import request, abort

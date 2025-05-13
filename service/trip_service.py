@@ -1,6 +1,6 @@
 from datetime import datetime
 from typing import Dict, Optional
-from entity.models import db, BusinessTrip, Employee
+from entity import db, BusinessTrip, Employee
 from entity.enums import TripStatus, TripType
 from sqlalchemy.exc import SQLAlchemyError
 

@@ -9,7 +9,7 @@ personal_data_model = ns.model('PersonalData', {
     'date_of_birth': fields.String(required=True, description='Дата рождения (YYYY-MM-DD)')
 })
 
-contact_info_model = ns.model('ContactInfo', {
+contact_info_model = ns.model('ContactInfo.py', {
     'phone': fields.String(required=True, description='Телефон'),
     'email': fields.String(required=True, description='Email'),
     'work_phone': fields.String(required=False, description='Рабочий телефон'),
