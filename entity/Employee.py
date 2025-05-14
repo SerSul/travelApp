@@ -9,7 +9,7 @@ class Employee(db.Model):
     personal_data = db.relationship('PersonalData', backref='employees', uselist=False)
 
     passport = db.relationship('PassportData', backref='employee_owner', uselist=False, cascade="all, delete-orphan")
-    contact_info = db.relationship('ContactInfo.py', backref='employee_owner', uselist=False, cascade="all, delete-orphan")
+    contact_info = db.relationship('ContactInfo', backref='employee_owner', uselist=False, cascade="all, delete-orphan")
     trips = db.relationship('BusinessTrip', backref='employee', lazy=True, cascade="all, delete-orphan")
 
     @property

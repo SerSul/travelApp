@@ -7,7 +7,7 @@ from config import ns, require_api_key
 
 employee_service = EmployeeService()
 
-@ns.route('/')
+@ns.route('/employees')
 class EmployeeList(Resource):
     @ns.marshal_list_with(employee_response_model)
     @require_api_key

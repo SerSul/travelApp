@@ -39,7 +39,7 @@ class EmployeeService:
             raise
         except SQLAlchemyError as e:
             db.session.rollback()
-            raise Exception("Database error")
+            raise Exception("Database error: " + e.args[0])
         except Exception as e:
             db.session.rollback()
             raise

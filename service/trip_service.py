@@ -61,6 +61,15 @@ class TripService:
         except Exception as e:
             raise
 
+    def get_all_trips(self) -> list:
+        try:
+            trips = BusinessTrip.query.all()
+            return [self._format_trip_response(trip) for trip in trips]
+        except SQLAlchemyError as e:
+            raise Exception("Database error")
+        except Exception as e:
+            raise
+
     def _format_trip_response(self, trip: BusinessTrip) -> Dict:
         return {
             "id": trip.id,

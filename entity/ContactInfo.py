@@ -1,7 +1,8 @@
-from entity import *
+from entity import db
 
 
 class ContactInfo(db.Model):
+    __tablename__ = 'contact_info'
     id = db.Column(db.Integer, primary_key=True)
     employee_id = db.Column(db.Integer, db.ForeignKey('employee.id'), nullable=False)
     phone = db.Column(db.String(20), nullable=False)
